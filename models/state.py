@@ -19,7 +19,6 @@ class State(BaseModel, Base):
                           cascade="all, delete-orphan",
                           passive_deletes=True)
 
-    
     if environ.get('HBNB_TYPE_STORAGE') != 'db':
         @property
         def cities(self):

@@ -89,7 +89,7 @@ class DBStorage:
         """
         try:
             self.__session.delete(obj)
-        except:
+        except Exception as E:
             pass
 
     def reload(self):
