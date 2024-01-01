@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Create a Flask web application """
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 """
@@ -26,7 +26,7 @@ def c(text):
     return 'C ' + text.replace('_', ' ')
 
 
-@app.route("/python", strict_slashes=False)
+@app.route("/python", defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def python_with_text(text='is cool'):
     """
@@ -43,7 +43,7 @@ def number(n):
 
 @app.route("/number_template/<int:n>", strict_slashes=False)
 def number_template(n):
-    """ Return an HTML page if 'n' is integer"""
+    """ Return an HTML page if 'n' is integer """
     path = '5-number.html'
     return render_template(path, n=n)
 
