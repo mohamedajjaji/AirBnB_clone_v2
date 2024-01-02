@@ -15,9 +15,7 @@ def states_list():
     """
     Return HTML page with list of State objects in DBStorgae
     States sorted by name """
-    states = storage.all(State)
-    # sort State object alphabetically by name
-    sorted_states = sorted(states.values(), key=lambda state: state.name)
+    states = storage.all("State")
     path = '7-states_list.html'
     return render_template(path, states=states)
 
